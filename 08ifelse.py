@@ -48,6 +48,27 @@ is40 = ( jumsu1 >= 40)  and (jumsu2 >= 40) and (jumsu3 >= 40)
 if is60 and is40 :
     print('합합')
 
+    score = [0, 0, 0]
+    for i in range(len(score)):
+        score[i] = int(input('점수입력 : '))
+
+    tot = 0
+    for i in score:
+        tot += i
+    avg = tot / len(score)
+
+    isPass = True
+    if avg < 60:
+        isPass = False
+    for i in score:
+        if i < 40:
+            isPass = False
+
+    if isPass:
+        print('합격!!!')
+    else:
+        print('불합격!!!!!!!')
+
 # ex3) 입력한 어떤 수가 짝수/홀수인지 판단하는 조건문
 num = int(input('정수를 하나 입력해보거라'))
 

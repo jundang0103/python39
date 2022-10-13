@@ -66,11 +66,13 @@ print(f'7x1 = {7*1:d} : 7x2 = {7*2:d} ')
 print(f'7x2= {7*2:d}')
 print(f'7x3= {7*3:d}')
 print(f'7x4= {7*4:d}')
-print(f'7x5= {7*5:d}')
+print(f'7x5= {7*5}')
 print(f'7x6= {7*6:d}')
 print(f'7x7= {7*7:d}')
 print(f'7x8= {7*8:d}')
 print(f'7x9= {7*9:d}')
+
+print(f'난 모르겠다 ={2*2:d}')
 
 
 ggu = 7

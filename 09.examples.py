@@ -1,7 +1,14 @@
 # 20
 
 
-# 22
+# 22 - if문의 함정
+number = 30
+
+if number % 2 == 0 :    print('입력한 값은 짝!')
+print('입력값 홀 쑤')
+
+if number % 2 == 0 : print('입력한 값은 짝수')
+else: print('입력값 홀')
 
 # 26 연봉/ 결혼 여부 세금 계산 ( 0 : 미혼 )
 salary =int(input(' 연봉? : '))
@@ -27,5 +34,21 @@ if ( year % 4 == 0 and year % 100 != 0) or \
     print(year, '는 윤년입니다.')
 else:
     print(year,'는 윤년아님')
+    year = int(input("연도를 입력하시오"))
+    if ((year % 4 == 0 and year % 100 != 0) or year % 400 == 0):
+        print(f'{year}년은 윤년입니다.')
+    else:
+        print(f'{year}년은 윤년이 아닙니다.')
 
 # 25 - 복권 발행 프로그램
+#난수 생성시 random 묘듈의 randrange(st, end-1)
+import random as rnd
+
+yourkey = int(input('복권번호는?'))
+lottokey = rnd.randrange(111, 1000)
+print(lottokey)
+
+if yourkey == lottokey :
+    print('당첨 - 상금 백')
+else:
+    print('땡 다음기회')
