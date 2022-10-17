@@ -3,7 +3,7 @@ card = input('신용카드 번호는 ?')
 result = ''
 
 if card[:2] == '35' :
-    nums = card[2:]    # 나머지 카드 번호 추출
+    nums = card[:2]    # 나머지 카드 번호 추출
     if nums == '6317':  result = 'NH농협 JCB카드'
     elif nums == '6901' : result = '신한 JCB카드'
     elif nums == '6912' : result = 'KB국민 JCB카드'
@@ -33,8 +33,8 @@ if daytime == 'morning hours' : result = '아침시간 (7-12)'
 # elif daytime == 'midday' or daytime =='noon' : result = '점심시간'
 elif daytime in ( 'midday' ,'noon') : result = '점심시간 (12-1)'
 elif daytime == 'afternoon hours' : result = '오후(1~6)'
-elif daytime == 'night hours' : result = '저녁시간(6~9)'
 
+elif daytime == 'night hours' : result = '저녁시간(6~9)'
 
 # switch ~ case 와 비슷하게 작성해보기
 # 파이썬은 지금까지(~v3.9) swtich ~ case 구문을 지원하지 않음
@@ -106,6 +106,23 @@ print(year, result)
 # ex) 년도와 월을 입력받아
 # 윤년여부와 입력한 달의 마지막 날을 출력하는 프로그램을 작성하세요
 # 30: 4, 6 , 9 , 11
-# 31: 1, 3 , 5, 8, 10, 12
+# 31: 1, 3 , 5, 7, 8, 10, 12
 # 28 : 2 (윤년이 아닐때)
 # 29: 2 (윤년일때)
+
+year =int(input("년도를 입력하세요"))
+month =int(input("월을 입력하세요"))
+if month in (4,6,9,11) :
+    day = 30
+elif month in (1,3,5,7,8,10,12) :
+    day = 31
+elif month == 2 :
+    day = 2
+    if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0 :
+        day = 29
+    else:
+        day = 28
+
+print(day)
+
+

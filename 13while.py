@@ -30,7 +30,7 @@ print(i)
 sum = 0
 count = 1
 
-while count <= 100 :
+while count <= 100:
     sum = sum + count
     count = count + 1
 print("합:", sum)
@@ -39,18 +39,14 @@ dan = int(input('단은 ?'))
 
 i = 1
 while i <= 9:
-    print(f'{dan} X {i} = {dan*i}')
+    print(f'{dan} X {i} = {dan * i}')
     i += 1
-
-
-
-
 
 # p79 ex3) 3의 배수지만 2의 배수는 아닌 정수 출력하고
 # 누적합도 계산해서 출력
 hap = 0
 i = 1
-result =''
+result = ''
 while i <= 100:
     if i % 3 == 0 and i % 2 != 0:
         hap += i
@@ -58,21 +54,6 @@ while i <= 100:
         i += 1
 print(result)
 print(hap)
-
-
-main_menu = f'''
-성적 처리프로그램 v1
-====================
-1. 성적 데이터 추가
-2. 성적 데이터 조회
-3. 성적 데이터 상세조회
-4. 성적 데이터 수정
-5. 성적 데이터 삭제
-0. 프로그램 종료
-===================='''
-print(main_menu)
-input('=> 작업을 선택하세요 :')
-
 
 # 무한루프
 # 반복문의 조건식이 언제나 참이면
@@ -86,11 +67,13 @@ input('=> 작업을 선택하세요 :')
 # ex) 1 ~ 100 사이 정수들의 모든 합 계산후 출력
 # 단, 무한루프와 break를 이용해서 작성
 
-i =1
+i = 1
 hap = 0
-while True :
-    if i <= 100 : hap += i
-    else : break
+while True:
+    if i <= 100:
+        hap += i
+    else:
+        break
     i += 1
 
 print(hap)
@@ -101,7 +84,8 @@ print(hap)
 i = 1
 hap = 0
 while i <= 1000:
-    if hap > 15000: break
+    if hap > 15000:
+        break
     hap += i
     i += 1
 
@@ -109,16 +93,102 @@ print(f'1부터 {i}까지의 합은 {hap}입니다')
 
 i = 1
 hap = 0
-while True :
-    if hap >= 15000: break
-    elif i  < 1000 : hap += i
+while True:
+    if hap >= 15000:
+        break
+    elif i < 1000:
+        hap += i
     i += 1
 
-print(hap,i)
+print(hap, i)
 
 while i <= 1000:
-    if hap > 15000 : break
+    if hap > 15000:
+        break
     hap += i
     i += 1
 
 print(hap, i)
+
+# 성적처리 프로그램 메뉴화면 구현
+# while문과 break 사용
+
+main_menu = f'''
+성적 처리프로그램 v1
+====================
+1. 성적 데이터 추가
+2. 성적 데이터 조회
+3. 성적 데이터 상세조회
+4. 성적 데이터 수정
+5. 성적 데이터 삭제
+0. 프로그램 종료
+===================='''
+
+while True:
+    print(main_menu)
+    menu = input('=> 작업을 선택하세요 :')
+    if menu == '0':
+        print('성적 프로그램을 종료 합니다 !')
+        break
+    elif menu == '1':
+        print('성적 데이터 추가 완료 !')
+    elif menu == '2':
+        print('성적 데이터 조회 완료 !')
+    elif menu == '3':
+        print('성적 데이터 상세조회 완료 !')
+    elif menu == '4':
+        print('성적 데이터 수정 완료 !')
+    elif menu == '5':
+        print('성적 데이터 삭제 완료 !')
+    else:
+        print('잘못된 번호를 입력하셨습니다.')
+
+# 반복실행시 특정코드 회피 : continue
+# 반복 실행을 유지하면서
+# 특정 코드블럭의 실행을 생략하고 싶을때 사용
+
+# ex) 1 ~ 1000 사이의 모든 정수의 합을 출력하세요
+# 단, 7의 배수나 9의 배수는 제외하고  누적합을 구함
+
+i = 0
+hap = 0
+
+while i <= 1000:
+    i += 1
+    if i % 7 == 0 or i % 9 == 0: continue
+    hap += i  # 상황에 따라 실행될수도, 실행되지 않을 수도 있음
+
+print(f''' 1 ~ 1000 사이의 정수의 합 : {hap}''')
+
+# 아이디, 비밀번호를 입력받아
+# 미리 설정해둔 아이디, 비밀번호와 일치하면 '로그인 성공'
+# 일치하지 않으면 '로그인 실패' 라고 출력하는 조거문 작성
+# 아이디 : abc123 비밀번호 987xyz
+
+uid = 'abc123'
+pwd = '987xyz'
+
+while True:
+    ID = input('아이디를 입력해')
+    PW = input('비밀번호 쳐')
+
+    if ID == uid and pwd == PW:
+        print('로그인 성공')
+        break
+    else :
+        print('다시입력해주세여')
+
+# 난수 생성하기
+# 파이썬에서 난수를 생성하려면 random 패키지 이용
+# 생성방법: 패키지명.random.randint(시작값 끝값)
+
+import random as rnd  # 별칭으로 패키지명 줄여씀
+
+rnd.seed(2210171044)  # 난수생성 초기값 지정
+
+# 1~ 10 사이 임의의 정수 생성
+print(rnd.randint(1, 10))
+
+# 1 ~ 45 사이 임의의 정수 6개 생성
+for _ in range(6) :  # 반복실행시 인덱스가 필요없으면 _ 사용
+    print(rnd.randint(1,45), end=' ')
